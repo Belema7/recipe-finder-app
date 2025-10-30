@@ -27,7 +27,7 @@ Find your next favorite dish in seconds!
 
 1. Clone the repo  
    ```bash
-   git clone https://github.com/your-username/fetch-n-feast-recipe-finder.git
+   git clone https://github.com/belema7/fetch-n-feast-recipe-finder.git
 
 2. Navigate to project folder
     cd fetch-n-feast-recipe-finder
@@ -40,6 +40,7 @@ Find your next favorite dish in seconds!
 
 
 🧑🏽‍🍳 About the Project
+
 This project is part of my #100DaysOfCode challenge (Day 4).
 Each day, I build something new to level up my React skills and explore creative problem-solving through code.
 
