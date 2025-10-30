@@ -1,9 +1,15 @@
 import React from 'react'
 
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import Home from './pages/Home/Home'
+
 const App = () => {
   return (
     <div>
-      <h1 className='text-center'>Find our recipe</h1>
+      <Navbar/>
+      <Home/>
+      <Footer/>
     </div>
   )
 }
