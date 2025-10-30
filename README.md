@@ -1,16 +1,55 @@
-# React + Vite
+# 🍽️ Fetch-n-Feast | Recipe Finder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Find your next favorite dish in seconds!  
+**Fetch-n-Feast** is a React-based recipe finder app that lets you search for recipes by ingredients or meal name — powered by a public API.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 🔍 **Search Recipes** by keyword or ingredient  
+- 🍝 **Dynamic Results** fetched live from an API  
+- ❤️ **Simple & Responsive UI** built with React  
+- ⚡ **Real-time Loading State** for smooth experience  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** – frontend framework  
+- **Fetch API** – for getting recipe data  
+- **CSS / Tailwind** – for styling  
+- **Vite / Create React App** – for setup  
+
+---
+
+## 🎮 How to Run Locally
+
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/your-username/fetch-n-feast-recipe-finder.git
+
+2. Navigate to project folder
+    cd fetch-n-feast-recipe-finder
+
+3. Install dependencies
+    npm install
+
+4. Run the project
+    npm run dev
+
+
+🧑🏽‍🍳 About the Project
+This project is part of my #100DaysOfCode challenge (Day 4).
+Each day, I build something new to level up my React skills and explore creative problem-solving through code.
+
+🌐 API Source
+You can use TheMealDB API
+ or Edamam API
+ for fetching recipes.
+
+✨ Future Improvements
+Add filters for cuisine type
+Include calorie info
+Allow users to save favorite recipes
+
