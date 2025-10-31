@@ -1,5 +1,5 @@
 import React from "react";
-import RecipeCard from "./RecipeCard";
+import RecipeCard from "./RecipeCard.jsx";
 
 const RecipeList = ({ recipes }) => {
   if (!recipes || recipes.length === 0) {
