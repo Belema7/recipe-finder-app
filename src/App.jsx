@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import SearchBar from "./components/SearchBar";
 import RecipeList from "./components/RecipeList";
+import RecipeDetails from "./components/RecipeDetails";
 
 const App = () => {
-  // State to store recipes and the search term
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("chicken");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-  // Ref to focus on search input when app loads (we'll use it in SearchBar)
   const inputRef = useRef(null);
 
-  // Fetch recipes whenever search term changes
   useEffect(() => {
     const fetchRecipes = async () => {
       setLoading(true);
@@ -37,64 +36,45 @@ const App = () => {
     };
 
     fetchRecipes();
-  }, [search]); // runs whenever the search term changes
+  }, [search]);
 
-  // Function to trigger new search (will be passed to SearchBar)
   const handleSearch = (query) => {
     setSearch(query);
   };
 
+  const handleSelectRecipe = (recipe) => {
+    setSelectedRecipe(recipe);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedRecipe(null);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            🍳 Recipe Finder
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover delicious recipes from around the world. Search by ingredient, cuisine, or dish name.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-50 p-6 flex flex-col items-center">
+      {/* App Title */}
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-700 mb-8 drop-shadow-lg">
+        🍳 Recipe Finder
+      </h1>
 
-        {/* SearchBar Component */}
-        <div className="mb-8">
-          <SearchBar onSearch={handleSearch} inputRef={inputRef} />
-        </div>
+      {/* Search Bar */}
+      <SearchBar onSearch={handleSearch} inputRef={inputRef} />
 
-        {/* Loading and error messages */}
-        <div className="text-center">
-          {loading && (
-            <div className="flex items-center justify-center space-x-3">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
-              <p className="text-lg text-gray-700">Loading recipes...</p>
-            </div>
-          )}
-          
-          {error && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4 max-w-md mx-auto">
-              <p className="text-red-700 text-lg font-medium">{error}</p>
-            </div>
-          )}
-        </div>
+      {/* Loading & Error Messages */}
+      {loading && (
+        <p className="text-gray-600 text-lg mt-4 animate-pulse">Loading recipes...</p>
+      )}
+      {error && <p className="text-red-500 text-lg mt-4">{error}</p>}
 
-        {/* Recipe List */}
-        {!loading && !error && (
-          <div className="mt-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Found {recipes.length} {recipes.length === 1 ? 'recipe' : 'recipes'}
-              </h2>
-              {search && (
-                <span className="text-sm text-gray-600 bg-white px-3 py-1 rounded-full border">
-                  Search: "{search}"
-                </span>
-              )}
-            </div>
-            <RecipeList recipes={recipes} />
-          </div>
-        )}
-      </div>
+      {/* Recipe List */}
+      {!loading && !error && (
+        <RecipeList recipes={recipes} onSelect={handleSelectRecipe} />
+      )}
+
+      {/* Recipe Details Popup */}
+      {selectedRecipe && (
+        <RecipeDetails recipe={selectedRecipe} onClose={handleClosePopup} />
+      )}
     </div>
   );
 };
