@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import SearchBar from "./SearchBar";
 import RecipeList from "./RecipeList";
 import RecipeDetails from "./RecipeDetails";
+import Navbar from "./Navbar";
 
 const RecipeMain = () => {
   const [recipes, setRecipes] = useState([]);
@@ -52,6 +53,8 @@ const RecipeMain = () => {
   };
 
   return (
+    <div>
+        <Navbar/>
     <div className="min-h-screen bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50 p-6 flex flex-col items-center">
       {/* RecipeMain Title */}
       <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-700 mb-8 drop-shadow-lg">
@@ -76,6 +79,7 @@ const RecipeMain = () => {
       {selectedRecipe && (
         <RecipeDetails recipe={selectedRecipe} onClose={handleClosePopup} />
       )}
+    </div>
     </div>
   );
 };
