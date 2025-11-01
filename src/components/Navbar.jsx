@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // ✅ modern icons (from lucide-react)
+import { Menu, X } from "lucide-react"; 
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,6 +49,18 @@ const Navbar = () => {
               }
             >
               Recipes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/favorite"
+              className={({ isActive }) =>
+                `hover:text-yellow-500 transition-colors duration-200 ${
+                  isActive ? "text-yellow-500 font-semibold" : ""
+                }`
+              }
+            >
+              Favorite
             </NavLink>
           </li>
         </ul>
