@@ -1,8 +1,11 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const About = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-50 py-12 px-6 flex flex-col items-center">
+    <div>
+        <Navbar/>
+    <section className="min-h-screen bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50 py-12 px-6 flex flex-col items-center">
       {/* Title */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-yellow-700 mb-8 drop-shadow-lg text-center">
         👨‍💻 About This Challenge
@@ -72,6 +75,7 @@ const About = () => {
         “Consistency beats intensity — one day, one project at a time.” 💪
       </p>
     </section>
+    </div>
   );
 };
 
