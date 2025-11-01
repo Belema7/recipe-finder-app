@@ -14,7 +14,7 @@ const About = () => {
       {/* Main Content */}
       <div className="max-w-4xl bg-white rounded-2xl shadow-xl p-8 md:p-12 text-gray-700 leading-relaxed">
         <p className="text-lg mb-6">
-          Hey there 👋 I'm <span className="font-semibold text-yellow-600">Nahom</span>,
+          Hey there 👋 I'm <span className="font-semibold text-yellow-600">Belema</span>,
           a second-year Computer Science student and a passionate self-learner
           exploring web development.
         </p>

@@ -24,7 +24,7 @@ const Home = () => {
       </NavLink>
 
       <footer className="absolute bottom-6 text-gray-400 text-sm">
-        Built with ❤️ using React & Tailwind CSS
+        Built by <span className="font-bold">Belema</span> using React & Tailwind CSS
       </footer>
     </section>
     </div>
