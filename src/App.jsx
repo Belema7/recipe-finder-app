@@ -28,6 +28,7 @@ const App = () => {
           setRecipes([]);
           setError("No recipes found 😢");
         }
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         setError("Failed to fetch recipes. Please try again.");
       } finally {
@@ -51,7 +52,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-50 p-6 flex flex-col items-center">
+    <div className="min-h-screen bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50 p-6 flex flex-col items-center">
       {/* App Title */}
       <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-700 mb-8 drop-shadow-lg">
         🍳 Recipe Finder
