@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 const Favorite = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-50">
+    <div className="min-h-screen bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50">
       {/* Navbar */}
       <Navbar />
 

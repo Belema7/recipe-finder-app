@@ -116,6 +116,18 @@ const Navbar = () => {
               Recipes
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/favorite"
+              className={({ isActive }) =>
+                `hover:text-yellow-500 transition-colors duration-200 ${
+                  isActive ? "text-yellow-500 font-semibold" : ""
+                }`
+              }
+            >
+              Favorite
+            </NavLink>
+          </li>
         </ul>
       )}
     </nav>
