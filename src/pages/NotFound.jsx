@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-50 text-center px-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50 text-center px-4">
       <h1 className="text-6xl font-extrabold text-yellow-600 mb-4 drop-shadow-lg">
         404
       </h1>
