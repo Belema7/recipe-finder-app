@@ -1,27 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import RecipeList from "../components/RecipeList";
 
 const Favorite = () => {
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("favorites");
+    if (stored) setFavorites(JSON.parse(stored));
+  }, []);
+
+  const removeFavorite = (recipe) => {
+    const updated = favorites.filter((r) => r.idMeal !== recipe.idMeal);
+    setFavorites(updated);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+  };
+
   return (
-    <div className="min-h-screen bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50">
-      {/* Navbar */}
+    <div>
       <Navbar />
+      <div className="min-h-screen bg-linear-to-b from-yellow-50 via-yellow-100 to-yellow-50 p-6 flex flex-col items-center">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-700 mb-8 drop-shadow-lg">
+          ❤️ Your Favorite Recipes
+        </h1>
 
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center text-center mt-20 px-4">
-        <h2 className="text-3xl font-bold text-yellow-600 mb-4 drop-shadow-sm">
-          ❤️ Favorite Recipes
-        </h2>
-
-        <p className="text-gray-700 text-lg max-w-md">
-          No favorite recipes yet. Start exploring and add some tasty dishes to
-          your favorites!
-        </p>
-
-        {/* Decorative placeholder */}
-        <div className="mt-10 w-40 h-40 bg-yellow-100 rounded-full flex items-center justify-center shadow-inner">
-          <span className="text-5xl">🍲</span>
-        </div>
+        {favorites.length === 0 ? (
+          <p className="text-gray-600 text-lg">No favorites yet. Add some!</p>
+        ) : (
+          <RecipeList
+            recipes={favorites}
+            onToggleFavorite={removeFavorite}
+            favorites={favorites}
+          />
+        )}
       </div>
     </div>
   );

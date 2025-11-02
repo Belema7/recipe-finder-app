@@ -14,13 +14,10 @@ function recipeReducer(state, action) {
   switch (action.type) {
     case "FETCH_START":
       return { ...state, loading: true, error: "" };
-
     case "FETCH_SUCCESS":
       return { ...state, loading: false, recipes: action.payload, error: "" };
-
     case "FETCH_ERROR":
       return { ...state, loading: false, error: action.payload, recipes: [] };
-
     default:
       return state;
   }
@@ -28,11 +25,23 @@ function recipeReducer(state, action) {
 
 const RecipeMain = () => {
   const [state, dispatch] = useReducer(recipeReducer, initialState);
-
   const [search, setSearch] = useState("chicken");
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
+  const [favorites, setFavorites] = useState([]);
+
   const inputRef = useRef(null);
+
+  // ✅ Load favorites from localStorage once on mount
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(savedFavorites);
+  }, []);
+
+  // ✅ Save favorites to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -60,6 +69,15 @@ const RecipeMain = () => {
     fetchRecipes();
   }, [search]);
 
+  const toggleFavorite = (recipe) => {
+    const exists = favorites.some((fav) => fav.idMeal === recipe.idMeal);
+    const updated = exists
+      ? favorites.filter((fav) => fav.idMeal !== recipe.idMeal)
+      : [...favorites, recipe];
+
+    setFavorites(updated);
+  };
+
   const handleSearch = (query) => setSearch(query);
   const handleSelectRecipe = (recipe) => setSelectedRecipe(recipe);
   const handleClosePopup = () => setSelectedRecipe(null);
@@ -84,7 +102,12 @@ const RecipeMain = () => {
         )}
 
         {!state.loading && !state.error && (
-          <RecipeList recipes={state.recipes} onSelect={handleSelectRecipe} />
+          <RecipeList
+            recipes={state.recipes}
+            onSelect={handleSelectRecipe}
+            onToggleFavorite={toggleFavorite}
+            favorites={favorites} 
+          />
         )}
 
         {selectedRecipe && (
