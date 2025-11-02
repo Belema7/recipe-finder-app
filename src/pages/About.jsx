@@ -15,7 +15,7 @@ const About = () => {
       <div className="max-w-4xl bg-white rounded-2xl shadow-xl p-8 md:p-12 text-gray-700 leading-relaxed">
         <p className="text-lg mb-6">
           Hey there 👋 I'm <span className="font-semibold text-yellow-600">Belema</span>,
-          a second-year Computer Science student and a passionate self-learner
+          a third-year Computer Science student and a passionate self-learner
           exploring web development.
         </p>
 
@@ -47,9 +47,15 @@ const About = () => {
           <code className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-sm font-mono">
             useEffect
           </code>
-          , and{" "}
+          {" "}
           <code className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-sm font-mono">
             useRef
+          </code>{" "}
+          <code className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-sm font-mono">
+            react routing
+          </code>, and later{" "}
+          <code className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-sm font-mono">
+             updated useState with useReducer
           </code>{" "}
           — along with a sprinkle of Tailwind CSS for styling.
         </p>
